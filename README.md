@@ -9,7 +9,6 @@ Experience the game live on Roblox:
 **[Play Sword Duelists](https://www.roblox.com/games/4730509146/Sword-Duelists)**
 
 ## Game Features
-- **Skill-Based Combat**: Dynamic sword mechanics with Slash, Lunge, and Overhead attacks.
 - **Victory Tracking**: Compete for wins and show off your status on the leaderboards.
 - **Fast Matchmaking**: Automated game loops and map selection for non-stop action.
 
