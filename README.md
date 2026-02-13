@@ -1,7 +1,7 @@
 # Sword Duelists
 
 <p align="center">
-  <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4730509146&width=420&height=420&format=png" width="200" alt="Sword Duelists Icon">
+  <img src="https://tr.rbxcdn.com/180DAY-09e83e54a51482bfab6485352c37ccf4/512/512/Image/Png/noFilter" width="200" alt="Sword Duelists Icon">
 </p>
 
 **A professional sword fighting experience on Roblox.**
