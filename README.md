@@ -1,5 +1,9 @@
 # Sword Duelists
 
+<p align="center">
+  <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4730509146&width=420&height=420&format=png" width="200" alt="Sword Duelists Icon">
+</p>
+
 **A professional sword fighting experience on Roblox.**
 
 Test your skills in fast-paced duels, master different combat forms, and climb the leaderboards to become the ultimate duelist.
@@ -27,4 +31,4 @@ This project is managed using **Rojo** and **Aftman**.
 3.  **Sync**: Open Roblox Studio and connect via the Rojo plugin.
 
 ---
-*Created by Vasco888888 in 2020*
+*Created by Vasco888888 | Made in 2020*
