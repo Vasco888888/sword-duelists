@@ -2,6 +2,14 @@
   "name": "sword-duelists",
   "tree": {
     "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Status": {
+        "$className": "StringValue",
+        "$properties": {
+          "Value": "Waiting for players..."
+        }
+      }
+    },
     "ServerScriptService": {
       "$path": "src/ServerScriptService"
     },
@@ -9,6 +17,9 @@
       "Sword": {
         "$className": "Tool",
         "$path": "src/ServerStorage/Sword"
+      },
+      "Maps": {
+        "$className": "Folder"
       }
     },
     "Workspace": {

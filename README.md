@@ -1,21 +1,21 @@
 # Sword Duelists
 
-⚔️ **A professional sword fighting experience on Roblox.**
+**A professional sword fighting experience on Roblox.**
 
 Test your skills in fast-paced duels, master different combat forms, and climb the leaderboards to become the ultimate duelist.
 
-## 🔗 Play Now
+## Play Now
 Experience the game live on Roblox:
 **[Play Sword Duelists](https://www.roblox.com/games/4730509146/Sword-Duelists)**
 
-## ✨ Game Features
+## Game Features
 - **Skill-Based Combat**: Dynamic sword mechanics with Slash, Lunge, and Overhead attacks.
 - **Victory Tracking**: Compete for wins and show off your status on the leaderboards.
 - **Fast Matchmaking**: Automated game loops and map selection for non-stop action.
 
 ---
 
-## 🛠️ Development Setup
+## Development Setup
 This project is managed using **Rojo** and **Aftman**.
 
 ### Prerequisites
@@ -24,13 +24,8 @@ This project is managed using **Rojo** and **Aftman**.
 
 ### Local Environment
 1.  **Install Tools**: Run `aftman install` in the root directory.
-2.  **Start Rojo**: Run `rojo serve` to start the sync server.
+2.  **Start Rojo**: Run `rojo serve` (or `aftman run rojo serve`) to start the sync server.
 3.  **Sync**: Open Roblox Studio and connect via the Rojo plugin.
 
-### Project Standards
-- **Source Map**: `src/ServerScriptService` (Logic) & `src/ServerStorage/Sword` (Combat).
-- **Modern Luau**: Utilizing `task` library and generalized iteration.
-- **Clean Code**: Minimized whitespace for high-density, professional scripts.
-
 ---
-*Created with passion by Vasco.*
+*Created by Vasco888888*
