@@ -27,4 +27,4 @@ This project is managed using **Rojo** and **Aftman**.
 3.  **Sync**: Open Roblox Studio and connect via the Rojo plugin.
 
 ---
-*Created by Vasco888888*
+*Created by Vasco888888 | Made in 2020*
