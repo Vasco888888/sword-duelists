@@ -5,16 +5,13 @@ local SlashSound = Handle:WaitForChild("SlashSound")
 local LungeSound = Handle:WaitForChild("LungeSound")
 local OverheadSound = Handle:WaitForChild("OverheadSound")
 local HitSound = Handle:WaitForChild("HitSound")
-
 local Resources = require(script.Parent:WaitForChild("Resources"))
 local InputHandler = require(Resources:GetResource("InputHandler"))
 local AnimationPlayer = require(Resources:GetResource("AnimationPlayer"))
 local RemoteEventCreator = require(Resources:GetResource("RemoteEventCreator"))
 local Configuration = require(Resources:GetResource("Configuration"))
-
 local SwingSwordEvent = RemoteEventCreator:GetRemoteEvent("SwingSword")
 local Debris = game:GetService("Debris")
-
 local LocalUnsheathSound,LocalSlashSound
 local LocalLungeSound,LocalOverheadSound
 local CurrentAnimation,CurrentEquipAnimation
@@ -25,49 +22,38 @@ local UnsheathVolume,SlashVolume = UnsheathSound.Volume,SlashSound.Volume
 local LungeVolume,OverheadVolume = LungeSound.Volume,OverheadSound.Volume
 local CurrentSwordState = 1
 local LastAnimationTime = 0
-
 local function UpdateIcon()
 	if CurrentMouse and Equipped then
 		CurrentMouse.Icon = Tool.Enabled and "rbxasset://textures/GunCursor.png" or "rbxasset://textures/GunWaitCursor.png"
 	end
 end
-
 local function SwordUp()
 	Tool.GripForward = Vector3.new(1,0,0)
 	Tool.GripRight = Vector3.new(0,0,1)
 	Tool.GripUp = Vector3.new(0,1,0)
 end
-
 local function SwordOut()
 	Tool.GripForward = Vector3.new(0,-1,0)
 	Tool.GripRight = Vector3.new(0,0,1)
 	Tool.GripUp = Vector3.new(-1,0,0)
 end
-
 InputHandler.WeaponActivated:Connect(function(TargetPos)
 	if Equipped and Tool.Enabled then
-		
 		SwingSwordEvent:FireServer(CurrentSwordState)
 		Tool.Enabled = false
-		
 		local CurrentTime = tick()
 		if CurrentTime - LastAnimationTime > 1.5 then
 			CurrentSwordState = 1
 		end
 		LastAnimationTime = CurrentTime
-		
 		if CurrentAnimation then CurrentAnimation:Stop() end
-		
-		
 		if CurrentSwordState == 1 then
 			CurrentSwordState = 2
 			CurrentAnimation = AnimationPlayer:PlayAnimation("SwordSlash")
-			
 			LocalSlashSound:Play()
 		elseif CurrentSwordState == 2 then
 			CurrentSwordState = 3
 			CurrentAnimation = AnimationPlayer:PlayAnimation("SwordThrust")
-			
 			LocalLungeSound:Play()
 			task.wait(0.45)
 			if LastAnimationTime ~= CurrentTime then return end
@@ -78,26 +64,21 @@ InputHandler.WeaponActivated:Connect(function(TargetPos)
 		else
 			CurrentSwordState = 1
 			CurrentAnimation = AnimationPlayer:PlayAnimation("SwordOverhead")
-			
 			LocalOverheadSound:Play()
 			local UpwardForce = Instance.new("BodyVelocity")
 			UpwardForce.Velocity = Vector3.new(0,10,0)
 			UpwardForce.MaxForce = Vector3.new(0,4000,0)
 			Debris:AddItem(UpwardForce,0.5)
 			UpwardForce.Parent = Tool.Parent:FindFirstChild("HumanoidRootPart")
-	
 			LocalOverheadSound:Play()
 		end
 	end
 end)
-
 Tool.Equipped:Connect(function(NewMouse)
 	if not Equipped then
 		Equipped = true
 		CurrentMouse = NewMouse
 		UpdateIcon()
-		
-		
 		LocalUnsheathSound = UnsheathSound:Clone()
 		LocalUnsheathSound.Parent = Handle
 		task.delay(0.55,function()
@@ -107,23 +88,18 @@ Tool.Equipped:Connect(function(NewMouse)
 		end)
 		UnsheathSound.Volume = 0
 		UnsheathSound:Stop()
-		
 		LocalSlashSound = SlashSound:Clone()
 		LocalSlashSound.Parent = Handle
 		SlashSound.Volume = 0
 		SlashSound:Stop()
-		
 		LocalLungeSound = LungeSound:Clone()
 		LocalLungeSound.Parent = Handle
 		LungeSound.Volume = 0
 		LungeSound:Stop()
-		
 		LocalOverheadSound = OverheadSound:Clone()
 		LocalOverheadSound.Parent = Handle
 		OverheadSound.Volume = 0
 		OverheadSound:Stop()
-		
-		
 		if CurrentUnequipAnimation then CurrentUnequipAnimation:Stop() end
 		CurrentEquipAnimation = AnimationPlayer:PlayAnimation("SwordEquip")
 		task.delay(1,function()
@@ -133,46 +109,35 @@ Tool.Equipped:Connect(function(NewMouse)
 		end)
 	end
 end)
-
 Tool.Unequipped:Connect(function()
 	if Equipped then
 		Equipped = false
-		
-		
 		if CurrentAnimation then CurrentAnimation:Stop() end
 		if CurrentIdleAnimation then CurrentIdleAnimation:Stop() end
 		if CurrentEquipAnimation then CurrentEquipAnimation:Stop() end
 		CurrentUnequipAnimation = AnimationPlayer:PlayAnimation("SwordUnequip")
-		
-		
 		if LocalUnsheathSound then
 			LocalUnsheathSound:Stop()
 			LocalUnsheathSound:Destroy()
 			UnsheathSound.Volume = UnsheathVolume
 		end
-		
 		if LocalSlashSound then
 			LocalSlashSound:Stop()
 			LocalSlashSound:Destroy()
 			SlashSound.Volume = SlashVolume
 		end
-		
 		if LocalLungeSound then
 			LocalLungeSound:Stop()
 			LocalLungeSound:Destroy()
 			LungeSound.Volume = LungeVolume
 		end
-		
 		if LocalOverheadSound then
 			LocalOverheadSound:Stop()
 			LocalOverheadSound:Destroy()
 			OverheadSound.Volume = OverheadVolume
 		end
-		
-		
 		SwordUp()
 	end
 end)
-
 Tool:GetPropertyChangedSignal("Enabled"):Connect(UpdateIcon)
 
