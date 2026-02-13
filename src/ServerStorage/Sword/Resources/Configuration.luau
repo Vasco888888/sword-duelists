@@ -1,6 +1,3 @@
-
-
-
 return {
 	
 	WALK_SPEED_BUFF = 4,

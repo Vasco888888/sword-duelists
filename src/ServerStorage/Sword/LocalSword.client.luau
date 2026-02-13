@@ -1,6 +1,3 @@
-
-
-
 local Tool = script.Parent
 local Handle = Tool:WaitForChild("Handle")
 local UnsheathSound = Handle:WaitForChild("UnsheathSound")
@@ -29,15 +26,11 @@ local LungeVolume,OverheadVolume = LungeSound.Volume,OverheadSound.Volume
 local CurrentSwordState = 1
 local LastAnimationTime = 0
 
-
-
-
 local function UpdateIcon()
 	if CurrentMouse and Equipped then
 		CurrentMouse.Icon = Tool.Enabled and "rbxasset://textures/GunCursor.png" or "rbxasset://textures/GunWaitCursor.png"
 	end
 end
-
 
 local function SwordUp()
 	Tool.GripForward = Vector3.new(1,0,0)
@@ -45,15 +38,11 @@ local function SwordUp()
 	Tool.GripUp = Vector3.new(0,1,0)
 end
 
-
 local function SwordOut()
 	Tool.GripForward = Vector3.new(0,-1,0)
 	Tool.GripRight = Vector3.new(0,0,1)
 	Tool.GripUp = Vector3.new(-1,0,0)
 end
-
-
-
 
 InputHandler.WeaponActivated:Connect(function(TargetPos)
 	if Equipped and Tool.Enabled then
@@ -101,9 +90,6 @@ InputHandler.WeaponActivated:Connect(function(TargetPos)
 		end
 	end
 end)
-
-
-
 
 Tool.Equipped:Connect(function(NewMouse)
 	if not Equipped then

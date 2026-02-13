@@ -1,4 +1,3 @@
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local ServerStorage = game:GetService("ServerStorage")
@@ -11,10 +10,7 @@ local GameLenght = 90
 
 local prize = 1
 
-
-
 while true do
-
 
 	
 	Status.Value = "Waiting for players..."

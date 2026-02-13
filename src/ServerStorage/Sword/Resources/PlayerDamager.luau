@@ -1,10 +1,6 @@
-
-
-
 local PlayerDamager = {}
 
 local Debris = game:GetService("Debris")
-
 
 function PlayerDamager:CanDamageHumanoid(DamagingPlayer,Humanoid)
 	local HitPlayer = game.Players:GetPlayerFromCharacter(Humanoid.Parent)
@@ -14,7 +10,6 @@ function PlayerDamager:CanDamageHumanoid(DamagingPlayer,Humanoid)
 	
 	return true
 end
-
 
 function PlayerDamager:DamageHumanoid(DamagingPlayer,Humanoid,Damage,ToolName)
 	
@@ -34,5 +29,4 @@ function PlayerDamager:DamageHumanoid(DamagingPlayer,Humanoid,Damage,ToolName)
 end
 
 return PlayerDamager
-
 

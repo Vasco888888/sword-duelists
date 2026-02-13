@@ -1,10 +1,4 @@
-
-
-
-
 local ASSET_URL = "http://www.roblox.com/asset?id="
-
-
 
 local Animationids
 Animationids = {
@@ -136,12 +130,9 @@ local AnimationSettings = {
 	}
 }
 
-
-
 local AnimationPlayer = {}
 
 local Tool = script.Parent.Parent
-
 
 local AnimationCache = {}
 local function GetAnimation(AnimationId)
@@ -153,7 +144,6 @@ local function GetAnimation(AnimationId)
 	
 	return AnimationCache[AnimationId]
 end
-
 
 function AnimationPlayer:PlayAnimation(AnimationName)
 	local Character = Tool.Parent

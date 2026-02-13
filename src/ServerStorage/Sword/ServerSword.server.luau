@@ -1,6 +1,3 @@
-
-
-
 local Tool = script.Parent
 local Handle = Tool:WaitForChild("Handle")
 local UnsheathSound = Handle:WaitForChild("UnsheathSound")
@@ -34,22 +31,17 @@ for _,Name in TREE_NAMES do
 	TreeNameMap[Name] = true
 end
 
-
-
-
 local function SwordUp()
 	Tool.GripForward = Vector3.new(1,0,0)
 	Tool.GripRight = Vector3.new(0,0,1)
 	Tool.GripUp = Vector3.new(0,1,0)
 end
 
-
 local function SwordOut()
 	Tool.GripForward = Vector3.new(0,-1,0)
 	Tool.GripRight = Vector3.new(0,0,1)
 	Tool.GripUp = Vector3.new(-1,0,0)
 end
-
 
 local function CheckInTreeModel(Ins)
 	while Ins and Ins ~= game do
@@ -59,7 +51,6 @@ local function CheckInTreeModel(Ins)
 	end
 	return false
 end
-
 
 function SwordHit(TouchPart)
 	if not TouchPart.Parent then return end
@@ -77,9 +68,6 @@ function SwordHit(TouchPart)
 		TouchPart:BreakJoints()
 	end
 end
-
-
-
 
 SwingSwordEvent.OnServerEvent:Connect(function(Player,SwordMode)
 	if Player == CurrentPlayer and ToolEnabled and SwordMode then
@@ -114,7 +102,6 @@ SwingSwordEvent.OnServerEvent:Connect(function(Player,SwordMode)
 		Tool.Enabled = true
 	end
 end)
-
 
 Tool.Equipped:Connect(function()
 	if not Equipped then

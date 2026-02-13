@@ -1,6 +1,3 @@
-
-
-
 local InputBeganEvent = Instance.new("BindableEvent")
 local LongInputBeganEvent = Instance.new("BindableEvent")
 local InputEndedEvent = Instance.new("BindableEvent")
@@ -21,9 +18,6 @@ local Mouse = Player:GetMouse()
 
 local EventsToDisconnect = {}
 
-
-
-
 function CastRay(StartPos,Direction,Length)
 	local Hit,EndPos = game.Workspace:FindPartOnRay(Ray.new(StartPos,Direction * Length))
 	if Hit then
@@ -35,13 +29,11 @@ function CastRay(StartPos,Direction,Length)
 	return EndPos
 end
 
-
 local function Get3DPosition(X,Y)
 	local MouseRay = Camera:ScreenPointToRay(X,Y,1000)
 	local EndPos = MouseRay.Origin + MouseRay.Direction
 	return CastRay(Camera.CFrame.p,(EndPos - Camera.CFrame.p).unit,1000)
 end
-
 
 local function DisconnectEvents()
 	if not Tool.Parent then
@@ -51,8 +43,6 @@ local function DisconnectEvents()
 		EventsToDisconnect = {}
 	end
 end
-
-
 
 local ControllerDown = false
 table.insert(EventsToDisconnect,UserInputService.InputChanged:Connect(function(Input,Processed)
@@ -102,7 +92,6 @@ table.insert(EventsToDisconnect,UserInputService.InputChanged:Connect(function(I
 		end
 	end
 end))
-
 
 table.insert(EventsToDisconnect,UserInputService.InputBegan:Connect(function(Input,Processed)
 	if Processed then return end

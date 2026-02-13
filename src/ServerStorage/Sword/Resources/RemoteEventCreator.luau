@@ -1,12 +1,6 @@
-
-
-
 local RemoteEventCreator = {}
 
 local Tool = script.Parent.Parent
-
-
-
 
 function RemoteEventCreator:CreateRemoteEvent(Name)
 	
@@ -22,7 +16,6 @@ function RemoteEventCreator:CreateRemoteEvent(Name)
 	return RemoteEvent
 end
 
-
 function RemoteEventCreator:CreateRemoteFunction(Name)
 	
 	if Tool:FindFirstChild(Name) then
@@ -37,16 +30,13 @@ function RemoteEventCreator:CreateRemoteFunction(Name)
 	return RemoteFunction
 end
 
-
 function RemoteEventCreator:GetRemoteEvent(Name)
 	return Tool:WaitForChild(Name)
 end
-
 
 function RemoteEventCreator:GetRemoteFunction(Name)
 	return RemoteEventCreator:GetRemoteEvent(Name)
 end
 
 return RemoteEventCreator
-
 
