@@ -31,4 +31,11 @@ This project is managed using **Rojo** and **Aftman**.
 3.  **Sync**: Open Roblox Studio and connect via the Rojo plugin.
 
 ---
+
+## License
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+*Note: This license applies to the source code and scripts within this repository. The "Sword Duelists" branding, title, and any custom game assets (mesh, textures, etc.) remain the intellectual property of Vasco888888.*
+
+---
 *Created by Vasco888888 | Made in 2020*
